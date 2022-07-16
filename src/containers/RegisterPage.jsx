@@ -1,7 +1,13 @@
+import { Button, Typography } from "@mui/material";
 import React from "react";
 
 const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return (
+    <>
+      <Typography>tes</Typography>
+      <Button variant="contained">Tes</Button>
+    </>
+  );
 };
 
 export default RegisterPage;
