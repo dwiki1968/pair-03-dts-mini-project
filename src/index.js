@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterPage from "./containers/RegisterPage";
 import MovieDetailPage from "./containers/MovieDetailPage";
 import theme from "./utils/theme";
+import LoginPage from "./containers/LoginPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,7 +19,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="register" element={<RegisterPage />} />
-          {/* loginPage Belum */}
+          <Route path="login" element={<LoginPage />} />
           <Route path="/:movieId" element={<MovieDetailPage />} />
         </Routes>
       </BrowserRouter>

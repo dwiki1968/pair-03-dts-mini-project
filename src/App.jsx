@@ -1,5 +1,7 @@
+import HomePage from "./containers/HomePage";
+
 function App() {
-  return <>INISIASI</>;
+  return <HomePage />;
 }
 
 export default App;
