@@ -19,7 +19,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="register" element={<RegisterPage />} />
           {/* loginPage Belum */}
-          <Route path="/:movieId" element={<MovieDetailPage />} />
+          <Route path="/movie/:movieId" element={<MovieDetailPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

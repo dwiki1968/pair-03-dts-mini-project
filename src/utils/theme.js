@@ -9,18 +9,24 @@ const base = createTheme({
     secondary: {
       main: "#FFFFFF",
     },
+    tertiary: {
+      main: "#ffffff4d",
+    },
     error: {
       main: red[400],
     },
     text: {
       primary: "#FFFFFF",
-      secondary: "#rgba(255, 255, 255, 0.2)",
-      disabled: "#rgba(255, 255, 255, 0.2)",
+      secondary: "#ffffff33",
+      disabled: "##ffffff33",
     },
     divider: "#FFFFFF",
   },
   typography: {
     fontFamily: '"Inter", sans-serif',
+    button: {
+      fontWeight: 700,
+    },
   },
 
   shape: {
