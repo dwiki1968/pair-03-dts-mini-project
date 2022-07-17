@@ -21,6 +21,10 @@ const base = createTheme({
       disabled: "##ffffff33",
     },
     divider: "#FFFFFF",
+    background: {
+      default: "#141414",
+      paper: "#141414",
+    },
   },
   typography: {
     fontFamily: '"Inter", sans-serif',
@@ -31,6 +35,11 @@ const base = createTheme({
 
   shape: {
     borderRadius: 4,
+  },
+  props: {
+    MuiAppBar: {
+      color: "transparent",
+    },
   },
 });
 
