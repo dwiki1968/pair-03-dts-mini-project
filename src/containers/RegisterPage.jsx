@@ -1,5 +1,5 @@
-import { Button, Typography, TextField, Grid } from "@mui/material";
-import { borderRadius, Box, Container } from "@mui/system";
+import { Button, Grid, TextField } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 
 const RegisterPage = () => {
