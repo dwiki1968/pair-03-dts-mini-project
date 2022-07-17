@@ -11,11 +11,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "firebase": "^9.9.0",
-=======
     "axios": "^0.27.2",
->>>>>>> 42811c19135a4e2e4d13d69073d19dedd0ceabf8
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
