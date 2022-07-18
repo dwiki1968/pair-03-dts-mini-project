@@ -1,6 +1,6 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Button, Container, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Button, Typography, Container, Box, Stack } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,

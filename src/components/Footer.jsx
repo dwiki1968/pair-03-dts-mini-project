@@ -1,11 +1,9 @@
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import { Button } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const Footer = () => {
   return (

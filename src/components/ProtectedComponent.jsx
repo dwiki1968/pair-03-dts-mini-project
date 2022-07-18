@@ -1,7 +1,3 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../config/firebase";
 import {
   Box,
   Button,
@@ -9,6 +5,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../config/firebase";
 
 const ProtectedComponent = ({ children }) => {
   const navigate = useNavigate();

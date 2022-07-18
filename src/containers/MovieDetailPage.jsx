@@ -32,7 +32,7 @@ const MovieDetailPage = () => {
     };
 
     fetchDataMovies();
-  }, []);
+  }, ["movieId", "navigate"]);
 
   if (!movie) {
     return (
