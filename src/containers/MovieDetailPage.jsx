@@ -11,8 +11,6 @@ import {
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import tmdb from "../apis/tmdb";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 
 const MovieDetailPage = () => {
   const baseUrlForMovie = "https://image.tmdb.org/t/p";

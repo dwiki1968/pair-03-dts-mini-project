@@ -13,11 +13,19 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import SearchIcon from "@mui/icons-material/Search";
+import { signOutReq } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
 
 const pages = ["Home", "Series", "Movies", "New and Popular", "My List"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = [
+  //   "Profile"
+  // , "Account",
+  // "Dashboard",
+  "Logout",
+];
 
 const Header = () => {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,6 +42,11 @@ const Header = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleLogOut = async () => {
+    await signOutReq();
+    navigate("/login");
   };
 
   return (
@@ -158,7 +171,7 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleLogOut}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -10,6 +10,7 @@ import MovieDetailPage from "./containers/MovieDetailPage";
 import theme from "./utils/theme";
 import LoginPage from "./containers/LoginPage";
 import Layout from "./components/Layout";
+import ProtectedComponent from "./components/ProtectedComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,9 +25,11 @@ root.render(
           <Route
             path="/movie/:movieId"
             element={
-              <Layout>
-                <MovieDetailPage />
-              </Layout>
+              <ProtectedComponent>
+                <Layout>
+                  <MovieDetailPage />
+                </Layout>
+              </ProtectedComponent>
             }
           />
         </Routes>

@@ -1,8 +1,49 @@
-import { Button, Grid, TextField } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { auth, signUpReq } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
+
+  const [user, isLoading, error] = useAuthState(auth);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = () => {
+    signUpReq(email, password);
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
+  if (isLoading) {
+    return (
+      <Box
+        sx={{
+          backgroundColor: "black",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress color="primary" />
+      </Box>
+    );
+  }
+
   return (
     <>
       <Grid
@@ -49,6 +90,10 @@ const RegisterPage = () => {
                 border: "1px solid #FFFFFF",
                 borderRadius: "4px",
               }}
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
             />
             <TextField
               fullWidth
@@ -61,7 +106,12 @@ const RegisterPage = () => {
                 border: "1px solid #FFFFFF",
                 borderRadius: "4px",
               }}
+              value={password}
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
             />
+
             <Button
               fullWidth
               variant="contained"
@@ -70,9 +120,11 @@ const RegisterPage = () => {
                 mt: 4,
                 height: "56px",
               }}
+              onClick={handleSubmit}
             >
               Register
             </Button>
+            <Typography color="red">{error}</Typography>
           </Box>
         </Grid>
       </Grid>
