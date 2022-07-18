@@ -2,7 +2,6 @@ import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import {
   Box,
   Button,
-  Chip,
   CircularProgress,
   Grid,
   Stack,
@@ -32,7 +31,7 @@ const MovieDetailPage = () => {
     };
 
     fetchDataMovies();
-  }, ["movieId", "navigate"]);
+  }, [movieId, navigate]);
 
   if (!movie) {
     return (
@@ -105,22 +104,23 @@ const MovieDetailPage = () => {
                   height: "100%",
                 }}
               >
-                <Stack spacing={1}>
+                <Stack>
                   <Typography fontWeight="700" variant="h4">
                     {movie.title} ({movie.release_date.slice(0, 4)})
                   </Typography>
-                  <Stack direction="row" spacing={1}>
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
+                    <Typography>{movie.release_date}</Typography>
+                    <Typography>&#x2022;</Typography>
                     {movie.genres.map((genre) => (
-                      <Chip
-                        key={genre.id}
-                        label={genre.name}
-                        variant="outlined"
-                      />
+                      <Typography key={genre.id}>{genre.name}, </Typography>
                     ))}
-                  </Stack>
+                  </Box>
                 </Stack>
 
                 <Box>
+                  <Typography fontStyle="italic" variant="body">
+                    "{movie.tagline}"
+                  </Typography>
                   <Typography variant="h5">Description</Typography>
                   <Typography variant="body">{movie.overview}</Typography>
                 </Box>

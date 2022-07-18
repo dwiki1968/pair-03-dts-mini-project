@@ -15,12 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { signOutReq } from "../config/firebase";
 
 const pages = ["Home", "Series", "Movies", "New and Popular", "My List"];
-const settings = [
-  //   "Profile"
-  // , "Account",
-  // "Dashboard",
-  "Logout",
-];
+const settings = ["Profile", "Account", "Dashboard"];
 
 const Header = () => {
   const navigate = useNavigate();
@@ -36,6 +31,7 @@ const Header = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    navigate("/");
   };
 
   const handleCloseUserMenu = () => {
@@ -57,10 +53,17 @@ const Header = () => {
       <Container>
         <Toolbar disableGutters>
           <Avatar
+            onClick={() => {
+              navigate("/");
+            }}
             variant="square"
-            alt="Remy Sharp"
+            alt="Profile"
             src="/images/appLogo.png"
-            sx={{ display: { xs: "none", md: "flex" }, mr: 8 }}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: 8,
+              cursor: "pointer",
+            }}
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -99,24 +102,6 @@ const Header = () => {
               ))}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            LOGO
-          </Typography> */}
 
           <Box
             sx={{
@@ -168,8 +153,11 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem onClick={handleLogOut}>
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleLogOut}>
+                <MenuItem key={setting}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
