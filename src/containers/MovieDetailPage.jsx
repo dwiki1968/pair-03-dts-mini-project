@@ -1,4 +1,4 @@
-import { PlayArrow, InfoOutlined } from "@mui/icons-material";
+import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -10,19 +10,24 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import tmdb from "../apis/tmdb";
 
 const MovieDetailPage = () => {
+  const navigate = useNavigate();
+
   const baseUrlForMovie = "https://image.tmdb.org/t/p";
   const [movie, setMovie] = useState();
+  let { movieId } = useParams();
 
   useEffect(() => {
     const fetchDataMovies = async () => {
       try {
-        const res = await tmdb.get("/movie/438148");
+        const res = await tmdb.get(`/movie/${movieId}`);
         setMovie(res.data);
       } catch (err) {
-        console.log(err);
+        console.log("err", err);
+        navigate("*");
       }
     };
 
@@ -30,15 +35,13 @@ const MovieDetailPage = () => {
   }, []);
 
   if (!movie) {
-    console.log("loading");
     return (
       <Box
         sx={{
-          backgroundColor: "black",
-          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          flex: "1",
         }}
       >
         <CircularProgress color="primary" />
@@ -46,7 +49,6 @@ const MovieDetailPage = () => {
     );
   }
 
-  console.log(movie.title);
   return (
     <>
       <Box

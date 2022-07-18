@@ -18,7 +18,7 @@ const base = createTheme({
     text: {
       primary: "#FFFFFF",
       secondary: "#ffffff33",
-      disabled: "##ffffff33",
+      disabled: "#ffffff33",
     },
     divider: "#FFFFFF",
     background: {

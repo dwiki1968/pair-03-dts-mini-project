@@ -11,6 +11,7 @@ import theme from "./utils/theme";
 import LoginPage from "./containers/LoginPage";
 import Layout from "./components/Layout";
 import ProtectedComponent from "./components/ProtectedComponent";
+import NotFound from "./containers/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -32,6 +33,7 @@ root.render(
               </ProtectedComponent>
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -35,6 +35,12 @@ const signUpReq = async (email, password) => {
     console.log(err);
     console.log("error code auth", err.code);
     console.log("error message auth", err.message);
+    alert(
+      err.message
+        .replace(/-/g, " ")
+        .replace(/Firebase:/g, "")
+        .replace("auth/", "")
+    );
   }
 };
 
