@@ -20,7 +20,14 @@ root.render(
       <CssBaseline />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <App />
+              </Layout>
+            }
+          />
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route

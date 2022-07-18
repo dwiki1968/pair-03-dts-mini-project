@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "common.black", color: "grey.700" }}>
+    <Box sx={{ color: "#808080" }}>
       <Container sx={{ py: 6 }}>
         <Stack spacing={4}>
           <Box>
