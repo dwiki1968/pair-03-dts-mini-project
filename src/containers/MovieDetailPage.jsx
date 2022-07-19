@@ -2,6 +2,8 @@ import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import {
   Box,
   Button,
+  Card,
+  CardMedia,
   CircularProgress,
   Grid,
   Stack,
@@ -11,6 +13,7 @@ import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import tmdb from "../apis/tmdb";
+import MovieList from "../components/MovieList";
 
 const MovieDetailPage = () => {
   const navigate = useNavigate();
@@ -80,11 +83,17 @@ const MovieDetailPage = () => {
                 zIndex: "1000",
               }}
             >
-              <img
-                style={{ borderRadius: "4px" }}
-                src={`${baseUrlForMovie}/w300${movie.poster_path}`}
-                alt={movie.title}
-              />
+              <Card
+                sx={{
+                  maxWidth: "300px",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={`${baseUrlForMovie}/w300${movie.poster_path}`}
+                  alt={movie.title}
+                />
+              </Card>
             </Grid>
             <Grid
               item
@@ -148,6 +157,26 @@ const MovieDetailPage = () => {
           </Grid>
         </Container>
       </Box>
+
+      <MovieList
+        endpointUrl="/movie/popular?language=en-US&page=1"
+        title="Popular"
+      />
+
+      <MovieList
+        endpointUrl="movie/top_rated?language=en-US&page=1"
+        title="Top Rated"
+      />
+
+      <MovieList
+        endpointUrl="movie/upcoming?language=en-US&page=1"
+        title="Upcoming"
+      />
+
+      <MovieList
+        endpointUrl="movie/now_playing?language=en-US&page=1"
+        title="Now Playing"
+      />
     </>
   );
 };
