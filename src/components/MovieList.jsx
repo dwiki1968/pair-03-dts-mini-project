@@ -55,7 +55,7 @@ const MovieList = ({ title, endpointUrl }) => {
     };
 
     fetchDataMovies();
-  }, []);
+  }, [endpointUrl]);
 
   if (!movies) {
     return (

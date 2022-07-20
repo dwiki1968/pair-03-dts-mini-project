@@ -159,23 +159,18 @@ const MovieDetailPage = () => {
       </Box>
 
       <MovieList
+        endpointUrl={`/movie/${movieId}/similar?language=en-US&page=1`}
+        title="Similar"
+      />
+
+      <MovieList
+        endpointUrl={`/movie/${movieId}/recommendations?language=en-US&page=1`}
+        title="Recommendations"
+      />
+
+      <MovieList
         endpointUrl="/movie/popular?language=en-US&page=1"
         title="Popular"
-      />
-
-      <MovieList
-        endpointUrl="movie/top_rated?language=en-US&page=1"
-        title="Top Rated"
-      />
-
-      <MovieList
-        endpointUrl="movie/upcoming?language=en-US&page=1"
-        title="Upcoming"
-      />
-
-      <MovieList
-        endpointUrl="movie/now_playing?language=en-US&page=1"
-        title="Now Playing"
       />
     </>
   );
