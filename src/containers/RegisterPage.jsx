@@ -2,8 +2,10 @@ import {
   Button,
   CircularProgress,
   Grid,
+  Stack,
   TextField,
   Typography,
+  Link,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
@@ -124,7 +126,27 @@ const RegisterPage = () => {
             >
               Register
             </Button>
-            <Typography color="red">{error}</Typography>
+            <Stack
+              sx={{
+                width: "100%",
+                marginTop: 2,
+              }}
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              spacing={2}
+            >
+              <Typography>Already a member?</Typography>
+              <Link
+                color="secondary"
+                component={Button}
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Log In
+              </Link>
+            </Stack>
           </Box>
         </Grid>
       </Grid>

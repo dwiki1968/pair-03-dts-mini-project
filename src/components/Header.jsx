@@ -50,7 +50,7 @@ const Header = () => {
         backgroundColor: "transparent",
       }}
     >
-      <Container>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Avatar
             onClick={() => {

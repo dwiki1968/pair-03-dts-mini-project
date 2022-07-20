@@ -1,4 +1,11 @@
-import { Button, Typography, TextField, Grid } from "@mui/material";
+import {
+  Button,
+  Typography,
+  TextField,
+  Grid,
+  Link,
+  Stack,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -68,7 +75,7 @@ const LoginPage = () => {
               required
               variant="filled"
               id="email"
-              label="Email Address"
+              label="EMAIL"
               name="email"
               autoComplete="email"
               color="secondary"
@@ -82,7 +89,7 @@ const LoginPage = () => {
               variant="filled"
               required
               name="password"
-              label="Password"
+              label="PASSWORD"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -105,6 +112,28 @@ const LoginPage = () => {
             >
               Login
             </Button>
+            <Stack
+              sx={{
+                width: "100%",
+                marginTop: 2,
+              }}
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              spacing={2}
+            >
+              <Typography>New to Netflix? </Typography>
+              <Link
+                color="secondary"
+                component={Button}
+                onClick={() => {
+                  navigate("/register");
+                }}
+              >
+                Sign up Now
+              </Link>
+            </Stack>
+
             <Typography color="red">
               {errorMessage
                 .replace(/-/g, " ")

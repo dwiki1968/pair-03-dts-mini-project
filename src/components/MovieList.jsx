@@ -50,7 +50,7 @@ const MovieList = ({ title, endpointUrl }) => {
         setMovies(res.data.results);
         // console.log("movie list res", res.data.results);
       } catch (err) {
-        // console.log("err movie list", err);
+        console.log("err movie list", err);
       }
     };
 
@@ -67,7 +67,7 @@ const MovieList = ({ title, endpointUrl }) => {
 
   return (
     <>
-      <Container>
+      <Container maxWidth="xl">
         <Typography
           sx={{
             marginBottom: 2,
@@ -81,7 +81,7 @@ const MovieList = ({ title, endpointUrl }) => {
           modules={[Navigation, Pagination, A11y]}
           navigation
           speed={300}
-          slidesPerView={6}
+          slidesPerView={8}
           loop
           className="swiper-container"
         >

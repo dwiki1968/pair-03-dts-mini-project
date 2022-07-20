@@ -19,9 +19,11 @@ function App() {
           <Route
             path="/"
             element={
-              <Layout>
-                <HomePage />
-              </Layout>
+              <ProtectedComponent>
+                <Layout>
+                  <HomePage />
+                </Layout>
+              </ProtectedComponent>
             }
           />
           <Route path="register" element={<RegisterPage />} />
