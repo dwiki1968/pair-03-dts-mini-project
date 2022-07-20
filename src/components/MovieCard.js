@@ -2,7 +2,7 @@ import { Box, CardMedia, Rating } from "@mui/material";
 import Card from "@mui/material/Card";
 import * as React from "react";
 
-const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original";
+const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w300";
 
 const MovieCard = ({ movie }) => {
   return (
