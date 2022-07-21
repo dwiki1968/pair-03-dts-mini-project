@@ -9,37 +9,40 @@ import LoginPage from "./containers/LoginPage";
 import Layout from "./components/Layout";
 import ProtectedComponent from "./components/ProtectedComponent";
 import NotFound from "./containers/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedComponent>
-                <Layout>
-                  <HomePage />
-                </Layout>
-              </ProtectedComponent>
-            }
-          />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route
-            path="/movie/:movieId"
-            element={
-              <ProtectedComponent>
-                <Layout>
-                  <MovieDetailPage />
-                </Layout>
-              </ProtectedComponent>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <ScrollToTop>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <ProtectedComponent>
+                  <Layout>
+                    <HomePage />
+                  </Layout>
+                </ProtectedComponent>
+              }
+            />
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route
+              path="/movie/:movieId"
+              element={
+                <ProtectedComponent>
+                  <Layout>
+                    <MovieDetailPage />
+                  </Layout>
+                </ProtectedComponent>
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </ScrollToTop>
       </BrowserRouter>
     </ThemeProvider>
   );

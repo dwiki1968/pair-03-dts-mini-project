@@ -132,8 +132,8 @@ const Header = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   variant="square"
-                  alt="Remy Sharp"
-                  src="/images/profileIMG.png"
+                  alt="Profile"
+                  src="/images/profileIMG.svg"
                 />
               </IconButton>
             </Tooltip>
