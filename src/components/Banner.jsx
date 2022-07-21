@@ -58,7 +58,6 @@ const Banner = () => {
         }}
       >
         <Container
-          maxWidth="xl"
           sx={{
             paddingTop: 5,
           }}
