@@ -7,7 +7,7 @@ import {
   Stack,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
@@ -15,6 +15,12 @@ import { auth } from "../config/firebase";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (event) => {
     console.log("test");
