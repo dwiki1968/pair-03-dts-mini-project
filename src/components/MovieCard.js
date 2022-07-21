@@ -10,8 +10,8 @@ const MovieCard = ({ movie }) => {
       id={movie.id}
       sx={{
         display: "flex",
-        width: 285,
-        height: 160,
+        width: "285px",
+        height: "160px",
         m: 0.3,
       }}
     >

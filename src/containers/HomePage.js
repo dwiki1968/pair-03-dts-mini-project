@@ -31,6 +31,7 @@ const HomePage = () => {
       <MovieList
         endpointUrl="/movie/popular?language=en-US&page=1"
         title="Popular"
+        height="160px"
       />
 
       <MovieList
@@ -47,7 +48,15 @@ const HomePage = () => {
         endpointUrl="movie/now_playing?language=en-US&page=1"
         title="Now Playing"
       />
-      <Container maxWidth="xl">
+      <MovieList
+        endpointUrl="movie/upcoming?language=en-US&page=1"
+        title="Watch Again"
+      />
+      <MovieList
+        endpointUrl="movie/now_playing?language=en-US&page=1"
+        title="My List"
+      />
+      {/* <Container>
         <Grid>
           <Box
             sx={{
@@ -70,7 +79,7 @@ const HomePage = () => {
             </Box>
           </Box>
         </Grid>
-      </Container>
+      </Container> */}
     </>
   );
 };

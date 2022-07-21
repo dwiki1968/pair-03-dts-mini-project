@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/zoom";
 
 const MovieCard = ({ imgUrl, title, movieId }) => {
   const navigate = useNavigate();
@@ -21,7 +22,9 @@ const MovieCard = ({ imgUrl, title, movieId }) => {
     <>
       <Card
         sx={{
-          width: "150px",
+          m: "1px",
+          display: "flex",
+          padding: "5px",
         }}
       >
         <CardActionArea
@@ -39,7 +42,7 @@ const MovieCard = ({ imgUrl, title, movieId }) => {
   );
 };
 
-const MovieList = ({ title, endpointUrl }) => {
+const MovieList = ({ title, endpointUrl, height, width }) => {
   const baseUrlForMovie = "https://image.tmdb.org/t/p/w200";
   const [movies, setMovies] = useState();
 
@@ -67,7 +70,7 @@ const MovieList = ({ title, endpointUrl }) => {
 
   return (
     <>
-      <Container maxWidth="xl">
+      <Container>
         <Typography
           sx={{
             marginBottom: 2,
@@ -80,10 +83,10 @@ const MovieList = ({ title, endpointUrl }) => {
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           navigation
-          speed={300}
-          slidesPerView={8}
-          loop
+          speed={200}
+          slidesPerView={5}
           className="swiper-container"
+          zoom={{ maxRatio: 5 }}
         >
           {movies.map((movie) => (
             <SwiperSlide key={movie.id}>
