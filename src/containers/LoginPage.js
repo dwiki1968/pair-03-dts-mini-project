@@ -10,10 +10,12 @@ import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../config/firebase";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [user, isLoading, error] = useAuthState(auth);
   const [errorMessage, setErrorMessage] = React.useState("");
 
   useEffect(() => {
@@ -21,6 +23,22 @@ const LoginPage = () => {
       navigate("/");
     }
   }, [user, navigate]);
+
+  if (isLoading) {
+    return (
+      <Box
+        sx={{
+          backgroundColor: "black",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress color="primary" />
+      </Box>
+    );
+  }
 
   const handleSubmit = async (event) => {
     console.log("test");
